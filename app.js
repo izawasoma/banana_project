@@ -40,16 +40,16 @@ const katakanaToHiragana = (str) => {
 
 const showBlock = (idName) => {
     const block = document.getElementById(idName)
-    console.log(block)
     block.style.display = "block"
 }
 
 const checkAnswer = (answerKey, answer) => {
     const convertedAnswer = katakanaToHiragana(answer)
     const correctAnswer = answers[answerKey]
-    if(correctAnswer != undefined && convertedAnswer == convertedAnswer){
+    if(correctAnswer != undefined && convertedAnswer == correctAnswer){
         return true
     }
+    alert("不正解です")
     return false
 }
 
@@ -70,7 +70,7 @@ button_b.addEventListener("click", () => {
 })
 
 button_c.addEventListener("click", () => {
-    const answer = input_b.value
+    const answer = input_c.value
     const isCorrect = checkAnswer("c", answer)
     if(isCorrect){
         showBlock("block_d")
@@ -126,7 +126,7 @@ button_semi.addEventListener("click", () => {
 })
 
 button_final.addEventListener("click", () => {
-    const answer = input_semi.value
+    const answer = input_final.value
     const isCorrect = checkAnswer("final", answer)
     if(isCorrect){
         showBlock("block_clear")
